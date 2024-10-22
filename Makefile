@@ -6,15 +6,19 @@
 #    By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 15:47:38 by julcalde          #+#    #+#              #
-#    Updated: 2024/10/22 16:28:24 by julcalde         ###   ########.fr        #
+#    Updated: 2024/10/22 16:47:23 by julcalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# This Makefile builds the libftprintf library using the libft library,
+# It uses the 'ar' command to create the static library.
+# It does not relink unnecessarily.
+
 NAME = libftprintf.a
 
-CC = gcc
+CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I./libft
 
 LIBFT_DIR = libft
 

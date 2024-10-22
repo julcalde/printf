@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:29:49 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/22 16:35:56 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 • Your function has to handle the following conversions: cspdiuxX%
 */
 
-int	ft_printf(const char *aaa, ...)
+int	ft_printf(const char *format, ...)
 {
 	return (0);
 }

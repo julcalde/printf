@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/22 16:35:50 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
+# include "libft.h"
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
 
 #endif
