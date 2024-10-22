@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/08 17:34:57 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/08 18:36:37 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-int	ft_printf(const char *, ...);
-
-#endif
+int	ft_toupper(int x)
+{
+	if (x >= 'a' && x <= 'z')
+		x -= 32;
+	return (x);
+}

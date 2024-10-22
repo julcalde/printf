@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/08 21:32:59 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/13 18:24:20 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			return ((char *) &s[i]);
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *) &s[i]);
+	return (NULL);
+}

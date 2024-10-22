@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/15 17:53:31 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/15 17:57:30 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
+void	ft_putendl_fd(char *s, int fd)
+{
+	int	i;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}

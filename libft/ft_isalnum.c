@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/07 18:26:42 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/08 16:07:40 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-int	ft_printf(const char *, ...);
-
-#endif
+int	ft_isalnum(int x)
+{
+	if ((x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z')
+		|| (x >= '0' && x <= '9'))
+		return (1);
+	return (0);
+}

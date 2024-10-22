@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/09 12:16:42 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/11 15:48:55 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-
-int	ft_printf(const char *, ...);
-
-#endif
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while (n > 0 && *s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	if (n == 0)
+		return (0);
+	return ((unsigned char) *s1 - (unsigned char) *s2);
+}

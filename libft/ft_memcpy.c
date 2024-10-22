@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/10 20:38:50 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/11 15:40:38 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char		*d;
+	const unsigned char	*s;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	d = dst;
+	s = src;
+	while (n--)
+		*d++ = *s++;
+	return ((void *) dst);
+}

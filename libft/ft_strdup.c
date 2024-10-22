@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/11 17:18:20 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/11 19:04:37 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
+char	*ft_strdup(const char *s1)
+{
+	char	*dupe;
+	int		c;
+	size_t	i;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	c = 0;
+	i = ft_strlen(s1);
+	dupe = ft_calloc(i + 1, sizeof(char));
+	if (dupe == NULL)
+		return (NULL);
+	while (s1[c] != '\0')
+	{
+		dupe[c] = s1[c];
+		c++;
+	}
+	dupe[c] = '\0';
+	return (dupe);
+}

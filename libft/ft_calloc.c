@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:48:26 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 16:23:04 by julcalde         ###   ########.fr       */
+/*   Created: 2024/10/11 16:27:05 by julcalde          #+#    #+#             */
+/*   Updated: 2024/10/11 17:15:53 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
+void	*ft_calloc(size_t count, size_t size)
+{
+	size_t	tot_mem;
+	void	*p;
 
-int	ft_printf(const char *, ...);
-
-#endif
+	tot_mem = count * size;
+	p = malloc(count * size);
+	if (p == NULL)
+		return (NULL);
+	ft_memset(p, 0, tot_mem);
+	return (p);
+}
