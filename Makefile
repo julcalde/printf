@@ -6,7 +6,7 @@
 #    By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 15:47:38 by julcalde          #+#    #+#              #
-#    Updated: 2024/10/22 16:47:23 by julcalde         ###   ########.fr        #
+#    Updated: 2024/10/25 20:15:55 by julcalde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBFT_DIR = libft
 
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c ft_charcheck.c ft_numcheck.c
 
 OBJS = $(SRCS:.c=.o)
 

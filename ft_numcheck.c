@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:57:42 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 19:23:28 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:41:04 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,26 @@
 
 void	ft_p(size_t p, int *count)
 {
-	
+	char	chars[20];
+	int		i;
+	char	*b16;
+
+	b16 = "0123456789abcdef";
+	i = 0;
+	ft_s("0x", 2);
+	if (p == 0)
+	{
+		ft_c('0', count);
+		return ;
+	}
+	while (p != 0)
+	{
+		chars[i] = b16[p % 16];
+		p /= 16;
+		i++;
+	}
+	while (i--)
+		ft_c(chars[i], count);
 }
 
 void	ft_d_i(int n, int *count)
@@ -38,10 +57,34 @@ void	ft_d_i(int n, int *count)
 
 void	ft_u(unsigned int u, int *count)
 {
-	
+	if (u >= 10)
+		ft_u(u / 10, count);
+	ft_c(u % 10 + '0', count);
 }
 
 void	ft_lx_ux(unsigned int x, int *count, char lx_ux)
 {
-	
+	char	chars[20];
+	int		i;
+	char	*b16;
+
+	if (lx_ux == 'x')
+		b16 = "0123456789abcdef";
+	else if (lx_ux == 'X')
+		b16 = "0123456789ABCDEF";
+	i = 0;
+	ft_s("0x", 2);
+	if (x == 0)
+	{
+		ft_c('0', count);
+		return ;
+	}
+	while (x != 0)
+	{
+		chars[i] = b16[x % 16];
+		x /= 16;
+		i++;
+	}
+	while (i--)
+		ft_c(chars[i], count);
 }
