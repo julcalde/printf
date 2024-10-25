@@ -6,12 +6,12 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 20:55:34 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 20:55:36 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 21:02:44 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include "libft.h"
