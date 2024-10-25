@@ -6,16 +6,16 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:53:05 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 19:05:19 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:56:48 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_c(char c, int *count)
 {
 	write (1, &c, 1);
-	*count++;
+	(*count)++;
 }
 
 void	ft_s(char *args, int *count)

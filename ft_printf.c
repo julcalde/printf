@@ -6,11 +6,11 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 16:27:53 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:56:28 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 /* Here are the requirements:
 • Don’t implement the buffer management of the original printf().
@@ -20,7 +20,7 @@
 static void	format_check(char specifier, va_list *args, int *char_count, int *i)
 {
 	if (specifier == 'c')
-		ft_c(va_arg(*args, char), char_count);
+		ft_c(va_arg(*args, int), char_count);
 	else if (specifier == 's')
 		ft_s(va_arg(*args, char *), char_count);
 	else if (specifier == 'p')

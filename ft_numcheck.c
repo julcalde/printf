@@ -6,11 +6,11 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:57:42 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 20:41:04 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:56:40 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_p(size_t p, int *count)
 {
@@ -20,7 +20,7 @@ void	ft_p(size_t p, int *count)
 
 	b16 = "0123456789abcdef";
 	i = 0;
-	ft_s("0x", 2);
+	ft_s("0x", count);
 	if (p == 0)
 	{
 		ft_c('0', count);
@@ -46,13 +46,13 @@ void	ft_d_i(int n, int *count)
 	}
 	else if (n < 0)
 	{
-		ft_c('-', 1);
+		ft_c('-', count);
 		n *= 1;
-		ft_n(n, *count);
+		ft_d_i(n, count);
 	}
 	else if (n >= 10)
-		ft_n(n / 10, *count);
-	ft_c(n % 10 + '0', *count);
+		ft_d_i(n / 10, count);
+	ft_c(n % 10 + '0', count);
 }
 
 void	ft_u(unsigned int u, int *count)
@@ -73,7 +73,7 @@ void	ft_lx_ux(unsigned int x, int *count, char lx_ux)
 	else if (lx_ux == 'X')
 		b16 = "0123456789ABCDEF";
 	i = 0;
-	ft_s("0x", 2);
+	write(1, "0x", 2);
 	if (x == 0)
 	{
 		ft_c('0', count);
