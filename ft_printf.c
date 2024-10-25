@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 20:56:28 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 21:06:18 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ int	ft_printf(const char *user_input, ...)
 		}
 	}
 	va_end(args);
-	return (0);
+	return (char_count);
 }
