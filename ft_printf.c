@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/22 19:54:00 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 15:59:30 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,70 +16,51 @@
 • Don’t implement the buffer management of the original printf().
 • Your function has to handle the following conversions: cspdiuxX%
 */
-int	ft_putchar(char c)
+
+static void	format_check(char specifier, va_list *args, int *char_count, int *i)
 {
-	return (write(1, &c, 1));
+	if (specifier == 'c')
+		ft_c(va_arg(*args, char), char_count);
+	else if (specifier == 's')
+		ft_s(va_arg(*args, char *), char_count);
+	else if (specifier == 'p')
+		ft_p(va_arg(*args, size_t), char_count);
+	else if (specifier == 'd' || specifier == 'i')
+		ft_d_i(va_arg(*args, int), char_count);
+	else if (specifier == 'u')
+		ft_u(va_arg(*args, unsigned int), char_count);
+	else if (specifier == 'x')
+		ft_lx_ux(va_arg(*args, unsigned int), char_count, 'x');
+	else if (specifier == 'X')
+		ft_lx_ux(va_arg(*args, unsigned int), char_count, 'X');
+	else if (specifier == '%')
+		ft_c('%', char_count);
+	else
+		(*i)--;
 }
 
-int	ft_putstr(char *s)
-{
-	int	i;
-
-	while (*s)
-		i++;
-	return (i);
-}
-
-int	ft_putnbr(int n)
-{
-	int	count;
-
-	count = 0;
-	// if (n == -2147483648)
-	// {
-	// 	return ;
-	// }
-	if (n < 0)
-	{
-		count += ft_putchar('-');
-		n *= -1;
-	}
-	if (n >= 10)
-		count += ft_putnbr(n / 10);
-	count += ft_putchar(n % 10) + '0';
-	return (count);
-}
-
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *user_input, ...)
 {
 	va_list	args;
 	int		i;
 	int		char_count;
 
-	va_start(args, format);
+	va_start(args, user_input);
 	i = 0;
 	char_count = 0;
-	while (format[i] != '\0')
+	while (user_input[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (user_input[i] == '%')
 		{
 			i++;
-			if (format[i] == 's')
-			{
-				const char	*s;
-				s = va_arg(args, const char *);
-				char_count += ft_putstr(s);
-			}
-			if (format[i] == 'i')
-			{
-				int	num;
-				num = va_arg(args, int);
-				char_count += ft_putnbr(num);
-			}
+			format_check(user_input[i], &args, &char_count, &i);
+			i++;
 		}
 		else
-			char_count += ft_putchar(format[i]);
-		i++;
+		{
+			ft_c((char) user_input[i], &char_count)
+			i++;
+		}
 	}
 	va_end(args);
 	return (0);
