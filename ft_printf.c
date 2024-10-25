@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 15:59:30 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:27:53 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_printf(const char *user_input, ...)
 		}
 		else
 		{
-			ft_c((char) user_input[i], &char_count)
+			ft_c((char) user_input[i], &char_count);
 			i++;
 		}
 	}
