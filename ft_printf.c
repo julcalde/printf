@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/26 17:45:14 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 18:44:32 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	format_check(char specifier, va_list *args, int *char_count, int *i)
 		return (ft_c('%', char_count));
 	else
 		(*i)--;
-	return (0);
+	return (-1);
 }
 
 int	ft_printf(const char *user_input, ...)

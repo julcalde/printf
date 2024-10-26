@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:57:42 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/26 17:46:47 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 18:51:00 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_p(size_t p, int *count)
 {
-	char	chars[30];
-	int		i;
-	char	*b16;
+	char		chars[30];
+	int			i;
+	const char	*b16;
 
 	b16 = "0123456789abcdef";
 	i = 0;
