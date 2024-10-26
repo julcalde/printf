@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 20:55:34 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/26 14:36:02 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:16:29 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include "libft.h"
 
 int		ft_printf(const char *user_input, ...);
-void	ft_c(char c, int *count);
-void	ft_s(char *args, int *count);
-void	ft_p(size_t p, int *count);
-void	ft_d_i(int n, int *count);
-void	ft_u(unsigned int u, int *count);
-void	ft_lx_ux(unsigned int x, int *count, char lx_ux);
+int		ft_c(char c, int *count);
+int		ft_s(char *args, int *count);
+int		ft_p(size_t p, int *count);
+int		ft_d_i(int n, int *count);
+int		ft_u(unsigned int u, int *count);
+int		ft_lx_ux(unsigned int x, int *count, char lx_ux);
 
 #endif

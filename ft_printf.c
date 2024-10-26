@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:13:47 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 21:06:18 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:45:14 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,27 @@
 • Your function has to handle the following conversions: cspdiuxX%
 */
 
-static void	format_check(char specifier, va_list *args, int *char_count, int *i)
+static int	format_check(char specifier, va_list *args, int *char_count, int *i)
 {
 	if (specifier == 'c')
-		ft_c(va_arg(*args, int), char_count);
+		return (ft_c(va_arg(*args, int), char_count));
 	else if (specifier == 's')
-		ft_s(va_arg(*args, char *), char_count);
+		return (ft_s(va_arg(*args, char *), char_count));
 	else if (specifier == 'p')
-		ft_p(va_arg(*args, size_t), char_count);
+		return (ft_p(va_arg(*args, size_t), char_count));
 	else if (specifier == 'd' || specifier == 'i')
-		ft_d_i(va_arg(*args, int), char_count);
+		return (ft_d_i(va_arg(*args, int), char_count));
 	else if (specifier == 'u')
-		ft_u(va_arg(*args, unsigned int), char_count);
+		return (ft_u(va_arg(*args, unsigned int), char_count));
 	else if (specifier == 'x')
-		ft_lx_ux(va_arg(*args, unsigned int), char_count, 'x');
+		return (ft_lx_ux(va_arg(*args, unsigned int), char_count, 'x'));
 	else if (specifier == 'X')
-		ft_lx_ux(va_arg(*args, unsigned int), char_count, 'X');
+		return (ft_lx_ux(va_arg(*args, unsigned int), char_count, 'X'));
 	else if (specifier == '%')
-		ft_c('%', char_count);
+		return (ft_c('%', char_count));
 	else
 		(*i)--;
+	return (0);
 }
 
 int	ft_printf(const char *user_input, ...)
@@ -53,12 +54,14 @@ int	ft_printf(const char *user_input, ...)
 		if (user_input[i] == '%')
 		{
 			i++;
-			format_check(user_input[i], &args, &char_count, &i);
+			if (format_check(user_input[i], &args, &char_count, &i) == -1)
+				return (-1);
 			i++;
 		}
 		else
 		{
-			ft_c((char) user_input[i], &char_count);
+			if (ft_c((char) user_input[i], &char_count) == -1)
+				return (-1);
 			i++;
 		}
 	}

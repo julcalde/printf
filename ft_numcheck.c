@@ -6,13 +6,13 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:57:42 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/26 14:56:36 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:46:47 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_p(size_t p, int *count)
+int	ft_p(size_t p, int *count)
 {
 	char	chars[30];
 	int		i;
@@ -20,13 +20,10 @@ void	ft_p(size_t p, int *count)
 
 	b16 = "0123456789abcdef";
 	i = 0;
-	write(1, "0x", 2);
-	(*count) += 2;
+	if (ft_s("0x", count) == -1 || (p == 0 && ft_c('0', count) == -1))
+		return (-1);
 	if (p == 0)
-	{
-		ft_c('0', count);
-		return ;
-	}
+		return (0);
 	while (p != 0)
 	{
 		chars[i] = b16[p % 16];
@@ -34,60 +31,78 @@ void	ft_p(size_t p, int *count)
 		i++;
 	}
 	while (i--)
-		ft_c(chars[i], count);
+	{
+		if (ft_c(chars[i], count) == -1)
+			return (-1);
+	}
+	return (0);
 }
 
-void	ft_d_i(int n, int *count)
+int	ft_d_i(int n, int *count)
 {
 	if (n == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		if (write(1, "-2147483648", 11) == -1)
+			return (-1);
 		(*count) += 11;
-		return ;
+		return (0);
 	}
 	else if (n < 0)
 	{
-		ft_c('-', count);
+		if (ft_c('-', count) == -1)
+			return (-1);
 		n *= -1;
-		ft_d_i(n, count);
+		if (ft_d_i(n, count) == -1)
+			return (-1);
 	}
 	else
 	{
 		if (n > 9)
-			ft_d_i(n / 10, count);
-		ft_c(n % 10 + '0', count);
+			if (ft_d_i(n / 10, count) == -1)
+				return (-1);
+		if (ft_c(n % 10 + '0', count) == -1)
+			return (-1);
 	}
+	return (0);
 }
 
-void	ft_u(unsigned int u, int *count)
+int	ft_u(unsigned int u, int *count)
 {
 	if (u >= 10)
-		ft_u(u / 10, count);
-	ft_c(u % 10 + '0', count);
+	{
+		if (ft_u(u / 10, count))
+			return (-1);
+	}
+	if (ft_c(u % 10 + '0', count) == -1)
+		return (-1);
+	return (0);
 }
 
-void	ft_lx_ux(unsigned int x, int *count, char lx_ux)
+int	ft_lx_ux(unsigned int x, int *count, char lx_ux)
 {
 	char	chars[30];
-	int		i;
+	char	*ptr;
 	char	*b16;
 
-	if (lx_ux == 'x')
-		b16 = "0123456789abcdef";
-	else if (lx_ux == 'X')
+	b16 = "0123456789abcdef";
+	if (lx_ux == 'X')
 		b16 = "0123456789ABCDEF";
-	i = 0;
+	ptr = chars;
 	if (x == 0)
 	{
-		ft_c('0', count);
-		return ;
+		if (ft_c('0', count) == -1)
+			return (-1);
+		return (0);
 	}
-	while (x != 0)
+	while (x)
 	{
-		chars[i] = b16[x % 16];
+		*ptr++ = b16[x % 16];
 		x /= 16;
-		i++;
 	}
-	while (i--)
-		ft_c(chars[i], count);
+	while (ptr-- > chars)
+	{
+		if (ft_c(*ptr, count) == -1)
+			return (-1);
+	}
+	return (0);
 }

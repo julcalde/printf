@@ -6,32 +6,37 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:53:05 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/26 14:56:16 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:59:31 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_c(char c, int *count)
+int	ft_c(char c, int *count)
 {
-	write (1, &c, 1);
+	if (write (1, &c, 1) == -1)
+		return (-1);
 	(*count)++;
+	return (0);
 }
 
-void	ft_s(char *args, int *count)
+int	ft_s(char *args, int *count)
 {
 	int	i;
 
 	i = 0;
 	if (args == NULL)
 	{
-		write(1, "(null)", 6);
+		if (write(1, "(null)", 6) == -1)
+			return (-1);
 		(*count) += 6;
-		return ;
+		return (0);
 	}
 	while (args[i] != '\0')
 	{
-		ft_c(args[i], count);
+		if (ft_c(args[i], count) == -1)
+			return (-1);
 		i++;
 	}
+	return (0);
 }
