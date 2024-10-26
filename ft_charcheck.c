@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:53:05 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/26 14:47:22 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 14:56:16 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_s(char *args, int *count)
 	i = 0;
 	if (args == NULL)
 	{
-		write(1, "(null)", 7);
-		(*count) += 7;
+		write(1, "(null)", 6);
+		(*count) += 6;
 		return ;
 	}
 	while (args[i] != '\0')
