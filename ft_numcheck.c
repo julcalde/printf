@@ -6,7 +6,7 @@
 /*   By: julcalde <julcalde@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:57:42 by julcalde          #+#    #+#             */
-/*   Updated: 2024/10/25 21:26:24 by julcalde         ###   ########.fr       */
+/*   Updated: 2024/10/26 14:53:05 by julcalde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	ft_d_i(int n, int *count)
 {
 	if (n == -2147483648)
 	{
-		write(1, "-2147483648", 11);
-		(*count) += 11;
+		write(1, "-2147483648", 12);
+		(*count) += 12;
 		return ;
 	}
 	else if (n < 0)
 	{
 		ft_c('-', count);
-		n *= 1;
+		n *= -1;
 		ft_d_i(n, count);
 	}
 	else
 	{
-		if (n >= 10)
+		if (n > 9)
 			ft_d_i(n / 10, count);
 		ft_c(n % 10 + '0', count);
 	}
